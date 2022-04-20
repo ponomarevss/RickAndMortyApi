@@ -3,10 +3,12 @@ package ru.ponomarevss.rickandmortyapi.ui.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import ru.ponomarevss.rickandmortyapi.BuildConfig.SPAN_COUNT
 import ru.ponomarevss.rickandmortyapi.databinding.FragmentCharsBinding
 import ru.ponomarevss.rickandmortyapi.mvp.presenter.CharsPresenter
 import ru.ponomarevss.rickandmortyapi.mvp.view.CharsView
@@ -17,7 +19,6 @@ import ru.ponomarevss.rickandmortyapi.ui.image.GlideImageLoader
 
 class CharsFragment: MvpAppCompatFragment(), CharsView, BackButtonListener {
     companion object {
-        private const val SPAN_COUNT = 2
         fun newInstance() = CharsFragment()
     }
 
@@ -30,6 +31,11 @@ class CharsFragment: MvpAppCompatFragment(), CharsView, BackButtonListener {
     private var adapter: CharsRVAdapter? = null
     private var vb: FragmentCharsBinding? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,7 +45,7 @@ class CharsFragment: MvpAppCompatFragment(), CharsView, BackButtonListener {
     }.root
 
     override fun init() {
-        vb?.rvChars?.layoutManager = GridLayoutManager(context, SPAN_COUNT)
+        vb?.rvChars?.layoutManager = GridLayoutManager(context, SPAN_COUNT.toInt())
         adapter = CharsRVAdapter(presenter.charsListPresenter, GlideImageLoader())
         vb?.rvChars?.adapter = adapter
     }
@@ -61,6 +67,15 @@ class CharsFragment: MvpAppCompatFragment(), CharsView, BackButtonListener {
 
     override fun update() {
         adapter?.notifyDataSetChanged()
+    }
+
+    override fun setAlert(text: String) {
+        AlertDialog.Builder(requireContext())
+            .setMessage(text)
+            .setPositiveButton(android.R.string.cancel) { _, _ ->
+                backPressed()
+            }
+            .show()
     }
 
     override fun backPressed() = presenter.backPressed()

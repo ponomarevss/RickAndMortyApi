@@ -11,5 +11,5 @@ class AndroidScreens : IScreens {
 
     override fun chars(): Screen = FragmentScreen { CharsFragment.newInstance() }
 
-    override fun char(char: Char): Screen = FragmentScreen { CharFragment.newInstance(char) }
+    override fun char(charUrl: String): Screen = FragmentScreen { CharFragment.newInstance(charUrl) }
 }

@@ -2,6 +2,7 @@ package ru.ponomarevss.rickandmortyapi.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
@@ -18,7 +19,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
-    val navigator = AppNavigator(this, R.id.container)
+    private val navigator = AppNavigator(this, R.id.container)
 
     private val presenter by moxyPresenter {
         MainPresenter().apply {
@@ -36,8 +37,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-//            R.id.home -> { // хз почему так не работает
-            16908332  -> {
+            android.R.id.home -> {
                 onBackPressed()
                 true
             }

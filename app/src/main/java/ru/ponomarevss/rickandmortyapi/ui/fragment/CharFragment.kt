@@ -1,11 +1,14 @@
 package ru.ponomarevss.rickandmortyapi.ui.fragment
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import ru.ponomarevss.rickandmortyapi.BuildConfig.CHAR_ARG
 import ru.ponomarevss.rickandmortyapi.databinding.FragmentCharBinding
 import ru.ponomarevss.rickandmortyapi.mvp.model.entity.Char
 import ru.ponomarevss.rickandmortyapi.mvp.presenter.CharPresenter
@@ -16,18 +19,16 @@ import ru.ponomarevss.rickandmortyapi.ui.image.GlideImageLoader
 
 class CharFragment : MvpAppCompatFragment(), CharView, BackButtonListener {
     companion object {
-        private const val CHAR_ARG = "char"
-
-        fun newInstance(char: Char) = CharFragment().apply {
+        fun newInstance(charUrl: String) = CharFragment().apply {
             arguments = Bundle().apply {
-                putParcelable(CHAR_ARG, char)
+                putString(CHAR_ARG, charUrl)
             }
         }
     }
 
     val presenter: CharPresenter by moxyPresenter {
-        val char = arguments?.getParcelable<Char>(CHAR_ARG) as Char
-        CharPresenter(char).apply {
+        val charUrl = arguments?.getString(CHAR_ARG) as String
+        CharPresenter(charUrl).apply {
             App.instance.appComponent.inject(this)
         }
     }
@@ -88,6 +89,15 @@ class CharFragment : MvpAppCompatFragment(), CharView, BackButtonListener {
         val activity = activity as AppCompatActivity
         val actionBar = activity.supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun setAlert(text: String) {
+        AlertDialog.Builder(requireContext())
+            .setMessage(text)
+            .setPositiveButton(android.R.string.cancel) { _, _ ->
+                backPressed()
+            }
+            .show()
     }
 
     override fun backPressed() = presenter.backPressed()

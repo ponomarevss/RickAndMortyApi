@@ -9,4 +9,5 @@ interface CharsView: MvpView {
     fun update()
     fun setTitle(text: String)
     fun setHomeButton()
+    fun setAlert(text: String)
 }

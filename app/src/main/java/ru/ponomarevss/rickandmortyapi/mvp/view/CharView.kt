@@ -1,5 +1,6 @@
 package ru.ponomarevss.rickandmortyapi.mvp.view
 
+import androidx.appcompat.app.AlertDialog
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.AddToEndSingle
 
@@ -14,4 +15,5 @@ interface CharView: MvpView {
     fun setCreated(text: String)
     fun loadImage(url: String)
     fun setHomeButton()
+    fun setAlert(text: String)
 }

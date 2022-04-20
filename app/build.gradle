@@ -31,6 +31,17 @@ android {
         viewBinding true
     }
 
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("app.properties").newDataInputStream())
+        def spanCount = properties.getProperty("SPAN_COUNT", "")
+        def charArg = properties.getProperty("CHAR_ARG", "")
+        def title = properties.getProperty("TITLE", "")
+        it.buildConfigField "String", "SPAN_COUNT", spanCount
+        it.buildConfigField "String", "CHAR_ARG", charArg
+        it.buildConfigField "String", "TITLE", title
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

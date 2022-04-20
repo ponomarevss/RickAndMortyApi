@@ -5,5 +5,5 @@ import ru.ponomarevss.rickandmortyapi.mvp.model.entity.Char
 
 interface IScreens {
     fun chars(): Screen
-    fun char(char: Char): Screen
+    fun char(charUrl: String): Screen
 }

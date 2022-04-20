@@ -3,6 +3,7 @@ package ru.ponomarevss.rickandmortyapi.mvp.presenter
 import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.runBlocking
 import moxy.MvpPresenter
+import ru.ponomarevss.rickandmortyapi.BuildConfig.TITLE
 import ru.ponomarevss.rickandmortyapi.mvp.model.entity.Char
 import ru.ponomarevss.rickandmortyapi.mvp.model.navigation.IScreens
 import ru.ponomarevss.rickandmortyapi.mvp.model.repo.ICharsRepo
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 class CharsPresenter : MvpPresenter<CharsView>() {
     companion object {
-        private const val TITLE = "Characters"
+//        private const val TITLE = "Characters"
     }
 
     @Inject lateinit var router: Router
@@ -49,15 +50,19 @@ class CharsPresenter : MvpPresenter<CharsView>() {
         viewState.setHomeButton()
 
         charsListPresenter.itemClickListener = {
-            val char = charsListPresenter.chars[it.pos]
-            router.navigateTo(screens.char(char))
+            val charUrl = charsListPresenter.chars[it.pos].url
+            router.navigateTo(screens.char(charUrl))
         }
     }
 
     private fun loadData() {
         charsListPresenter.chars.clear()
-        runBlocking {
-            charsListPresenter.chars.addAll(repo.getCharsRespond().results)
+        try {
+            runBlocking {
+                charsListPresenter.chars.addAll(repo.getCharsRespond().results)
+            }
+        } catch (e: Throwable) {
+            viewState.setAlert(e.message.toString())
         }
         viewState.update()
     }
