@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/kinda_black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_char"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fragment_char_image_margin"
+            tools:layout_height="300dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/status"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Status:"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/species"/>
+
+            <TextView
+                android:id="@+id/tv_species"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Species"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/gender"/>
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Gender"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/origin_name"/>
+
+            <TextView
+                android:id="@+id/tv_origin_name"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Origin name"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/location_name"/>
+
+            <TextView
+                android:id="@+id/tv_location_name"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Location name"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical|end"
+                android:text="@string/created"/>
+
+            <TextView
+                android:id="@+id/tv_created"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="@dimen/fragment_char_line_height"
+                android:layout_marginStart="@dimen/fragment_char_line_marginStart"
+                android:layout_marginEnd="@dimen/fragment_char_line_marginEnd"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                tools:text="Created"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

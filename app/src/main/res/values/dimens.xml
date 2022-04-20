@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fragment_char_line_height">30dp</dimen>
+    <dimen name="fragment_char_line_marginStart">8dp</dimen>
+    <dimen name="fragment_char_line_marginEnd">8dp</dimen>
+    <dimen name="fragment_char_image_margin">8dp</dimen>
+</resources>
